@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module type="JAVA_MODULE" version="4">
+  <component name="EclipseModuleManager">
+    <libelement value="file://$MODULE_DIR$/../../Biblioteki/JustPvP.PL/ChestPvP-CORE.jar" />
+    <libelement value="file://$MODULE_DIR$/../../Biblioteki/JustPvP.PL/ChestPvP-Guilds.jar" />
+    <libelement value="file://$MODULE_DIR$/../../Biblioteki/Ogolne Pluginy Do Bibliotek/ProtocolLib.jar" />
+    <libelement value="file://$MODULE_DIR$/../../Biblioteki/Silniki/1.8.8 PaperSpigot JustPvP.PL.jar" />
+    <libelement value="file://$MODULE_DIR$/../../Biblioteki/Ogolne Pluginy Do Bibliotek/Vault-1.4.1.jar" />
+    <src_description expected_position="0">
+      <src_folder value="file://$MODULE_DIR$/src" expected_position="0" />
+    </src_description>
+  </component>
+  <component name="NewModuleRootManager" inherit-compiler-output="false">
+    <output url="file://$MODULE_DIR$/bin" />
+    <exclude-output />
+    <content url="file://$MODULE_DIR$">
+      <sourceFolder url="file://$MODULE_DIR$/src" isTestSource="false" />
+    </content>
+    <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="jdk" jdkName="JavaSE-1.8" jdkType="JavaSDK" />
+    <orderEntry type="module-library">
+      <library name="ChestPvP-CORE.jar">
+        <CLASSES>
+          <root url="file://$MODULE_DIR$/../../Biblioteki/JustPvP.PL/ChestPvP-CORE.jar" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="ChestPvP-Guilds.jar">
+        <CLASSES>
+          <root url="file://$MODULE_DIR$/../../Biblioteki/JustPvP.PL/ChestPvP-Guilds.jar" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="ProtocolLib.jar">
+        <CLASSES>
+          <root url="file://$MODULE_DIR$/../../Biblioteki/Ogolne Pluginy Do Bibliotek/ProtocolLib.jar" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="1.8.8 PaperSpigot JustPvP.PL.jar">
+        <CLASSES>
+          <root url="file://$MODULE_DIR$/../../Biblioteki/Silniki/1.8.8 PaperSpigot JustPvP.PL.jar" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="Vault-1.4.1.jar">
+        <CLASSES>
+          <root url="file://$MODULE_DIR$/../../Biblioteki/Ogolne Pluginy Do Bibliotek/Vault-1.4.1.jar" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+  </component>
+</module>

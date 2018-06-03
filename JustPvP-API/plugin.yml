@@ -1,0 +1,6 @@
+name: ChestPvP-Api
+main: pl.blackwaterapi.API
+version: 1.0
+author: CzarnaWoda
+description: Plugin API Napisany przez BlackWater/CzarnaWoda Dla Serwera JustPvP.PL
+softdepend: [ProtocolLib]

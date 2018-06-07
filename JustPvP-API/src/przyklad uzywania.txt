@@ -1,0 +1,84 @@
+package pl.blackwater.chestpvpcore.settings;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+import org.bukkit.Material;
+import org.bukkit.configuration.ConfigurationSection;
+import org.bukkit.configuration.file.FileConfiguration;
+import org.bukkit.inventory.ItemStack;
+
+import pl.blackwater.chestpvpcore.Core;
+import pl.blackwater.chestpvpdrop.utils.Util;
+import pl.blackwaterapi.configs.ConfigCreator;
+
+public class OsiagnieciaConfig extends ConfigCreator{
+	
+    public static Map<Integer,OsiagnieciaStorage> osiagnieciastorage;
+    public static List<String> MESSAGE_OSIAGNIECIE;
+    public static String MESSAGE_COMPOSITION_TEXT;
+    public static String MESSAGE_COMPOSITION_COMMAND;
+    public static String MESSAGE_COMPOSITION_HIDETEXT;
+    public static String MESSAGE_TITLESEND_TITLE;
+    public static String MESSAGE_TITLESEND_SUBTITLE;
+    public static String GUI_INVENTORYNAME;
+    public static String GUI_ITEMNAME_BREAKSTONE;
+    public static String GUI_ITEMNAME_EATKOX;
+    public static String GUI_ITEMNAME_KILLS;
+    public static String GUI_ITEMNAME_OPENCHEST;
+    public static String GUI_ITEMNAME_THROWPEARL;
+    public static String GUI_ITEMNAME_EATREFIL;
+    public static String GUI_ITEMNAME_OTHER;
+    
+	public OsiagnieciaConfig() {
+		super("osiagniecia.yml", "osiagniecia config", Core.getPlugin());
+    	FileConfiguration config = getConfig();
+    	osiagnieciastorage = new HashMap<Integer, OsiagnieciaStorage>();
+    	MESSAGE_OSIAGNIECIE = config.getStringList("message.osiagniecie");
+    	MESSAGE_COMPOSITION_TEXT = config.getString("message.composition.text");
+    	MESSAGE_COMPOSITION_COMMAND = config.getString("message.composition.command");
+    	MESSAGE_COMPOSITION_HIDETEXT = config.getString("message.composition.hidetext");
+    	MESSAGE_TITLESEND_TITLE = Util.replaceString(config.getString("message.titlesend.title"));
+    	MESSAGE_TITLESEND_SUBTITLE = Util.replaceString(config.getString("message.titlesend.subtitle"));
+    	GUI_INVENTORYNAME = config.getString("gui.inventoryname");
+    	GUI_ITEMNAME_BREAKSTONE = config.getString("gui.itemname.breakstone");
+    	GUI_ITEMNAME_EATKOX = config.getString("gui.itemname.eatkox");
+    	GUI_ITEMNAME_KILLS = config.getString("gui.itemname.kills");
+    	GUI_ITEMNAME_OPENCHEST = (String) addField("gui.itemname.openchest", "&8* &7Osiagniecia &2otworzonych skrzynek");
+    	GUI_ITEMNAME_THROWPEARL = (String) addField("gui.itemname.throwpearl", "&8* &7Osiagniecia &2rzuconych perel");
+    	GUI_ITEMNAME_EATREFIL = (String) addField("gui.itemname.eatrefil", "&8* &7Osiagniecia &2zjedzonych refilii");
+    	GUI_ITEMNAME_OTHER = (String) addField("gui.itemname.other", "&8* &7Osiagniecia &2inne");
+    	int index = 0;
+    	for(String key : config.getConfigurationSection("osiagniecia").getKeys(false)){
+    		ConfigurationSection section = config.getConfigurationSection("osiagniecia." + key);
+    		String name = section.getString("name");
+    		Material m = Material.matchMaterial(section.getString("gui_item"));
+    		ItemStack gui_item = new ItemStack(m);
+    		int gui_itemdata = section.getInt("gui_itemdata");
+    		String gui_itemname = section.getString("gui_itemname");
+    		List<String> gui_itemlore = section.getStringList("gui_itemlore");
+    		String type = section.getString("osiagniecietype");
+    		int amount_toachivment = section.getInt("amount_toachivment");
+    		List<String> rewards = section.getStringList("rewardslist");
+    		List<ItemStack> rewardslist = new ArrayList<ItemStack>();
+    		for(String s : rewards){
+    			Material mat = Material.matchMaterial(s);
+    			ItemStack item = new ItemStack(mat);
+    			rewardslist.add(item);
+    		}
+    		List<Integer> rewardsdata = section.getIntegerList("rewardsdata");
+    		List<Integer> rewardsamount = section.getIntegerList("rewardsamount");
+    		List<String> rewardsenchantmentlevel = section.getStringList("rewardsenchantmentlevel");
+    		List<String> rewardsenchantments = section.getStringList("rewardsenchantment");
+    		int reward_money = section.getInt("rewardmoney");
+    		List<String> reward_keys = section.getStringList("reward_keys");
+    		List<Integer> reward_keysamount = section.getIntegerList("reward_keysamount");
+    		OsiagnieciaStorage storage = new OsiagnieciaStorage(key, name, gui_item, gui_itemdata, gui_itemname, gui_itemlore, type, amount_toachivment, rewardslist, rewardsdata, rewardsamount, rewardsenchantments, rewardsenchantmentlevel, reward_money, reward_keys, reward_keysamount);
+    		osiagnieciastorage.put(index, storage);
+    		index++;
+    	}
+	}
+
+}
